@@ -1,0 +1,147 @@
+.forms-shell {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  padding: 4.75rem 1rem 3rem;
+}
+
+.forms-panel {
+  width: min(100%, 39.75rem);
+  margin: 0 auto;
+  padding: 2rem 1.75rem 1.25rem;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 26px 65px rgba(22, 27, 43, 0.16);
+}
+
+.form-step-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-step-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.form-step-tab {
+  position: relative;
+  padding-bottom: 1rem;
+  color: #3f454f;
+  font-size: 0.98rem;
+  text-align: center;
+}
+
+.form-step-tab::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0.28rem;
+  border-radius: 999px;
+  background: #d0d0d0;
+}
+
+.form-step-tab .is-active::after,
+.form-step-tab .is-active {
+  color: #34373d;
+}
+
+.form-step-tab:has(.is-active)::after {
+  background: #109b9b;
+}
+
+.form-step-body {
+  display: grid;
+  gap: 1.6rem;
+  width: min(100%, 18rem);
+  margin: 0 auto;
+}
+
+.form-field {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.form-field label {
+  color: #6a7482;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.slug-display-input {
+  background: #e9eaed;
+  color: #7e8793;
+  cursor: not-allowed;
+}
+
+.slug-display-input:focus {
+  outline: none;
+  border-color: #d7dbe3;
+}
+
+.slug-help-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0;
+  color: #97a0ad;
+  font-size: 0.78rem;
+}
+
+.opening-days-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+}
+
+.opening-day-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #606b79;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.form-step-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.9rem;
+  padding-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .forms-shell {
+    padding-top: 4.25rem;
+  }
+
+  .forms-panel {
+    padding: 1.5rem 1.1rem 1.1rem;
+  }
+
+  .form-step-tabs {
+    gap: 0.75rem;
+  }
+
+  .form-step-tab {
+    font-size: 0.82rem;
+  }
+
+  .form-step-body {
+    width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .form-step-tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 1rem;
+  }
+
+  .form-step-actions {
+    flex-direction: column-reverse;
+  }
+}

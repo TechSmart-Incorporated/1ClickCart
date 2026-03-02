@@ -1,0 +1,133 @@
+import { FiInfo } from 'react-icons/fi'
+import { useNavigate } from 'react-router-dom'
+
+import { useBusinessForm } from '../../context/BusinessFormContext'
+import { Button } from '../ui/button'
+import { Checkbox } from '../ui/checkbox'
+import { Input } from '../ui/input'
+import { Textarea } from '../ui/textarea'
+import './Section1.css'
+
+const steps = ['Business Identity', 'Branding', 'Location', 'Contact']
+const dayLabels = [
+  { index: 0, label: 'Sunday' },
+  { index: 1, label: 'Monday' },
+  { index: 2, label: 'Tuesday' },
+  { index: 3, label: 'Wednesday' },
+  { index: 4, label: 'Friday' },
+  { index: 5, label: 'Saturday' },
+  { index: 6, label: 'Thursday' },
+]
+
+function slugify(value: string) {
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+}
+
+function Section1() {
+  const navigate = useNavigate()
+  const { businessForm, setBusinessForm } = useBusinessForm()
+
+  const updateField = <K extends keyof typeof businessForm>(
+    field: K,
+    value: (typeof businessForm)[K],
+  ) => {
+    setBusinessForm((current) => ({
+      ...current,
+      [field]: value,
+    }))
+  }
+
+  const handleNameChange = (value: string) => {
+    setBusinessForm((current) => ({
+      ...current,
+      name: value,
+      slug: slugify(value),
+    }))
+  }
+
+  const toggleScheduleDay = (dayIndex: number) => {
+    setBusinessForm((current) => ({
+      ...current,
+      schedule: current.schedule.map((day, index) =>
+        index === dayIndex ? { ...day, enabled: !day.enabled } : day,
+      ),
+    }))
+  }
+
+  return (
+    <section className="form-step-card" aria-label="Business Identity">
+      <div className="form-step-tabs" aria-label="Form progress">
+        {steps.map((step, index) => (
+          <div key={step} className="form-step-tab">
+            <span className={index === 0 ? 'is-active' : ''}>{step}</span>
+          </div>
+        ))}
+      </div>
+
+      <div className="form-step-body">
+        <div className="form-field">
+          <label htmlFor="business-name">Business Name</label>
+          <Input
+            id="business-name"
+            placeholder="TechSmart Inc"
+            value={businessForm.name}
+            onChange={(event) => handleNameChange(event.target.value)}
+          />
+        </div>
+
+        <div className="form-field">
+          <label htmlFor="business-slug">URL Preference (Slug)</label>
+          <Input
+            id="business-slug"
+            className="slug-display-input"
+            placeholder="/techsmart-inc"
+            readOnly
+            value={businessForm.slug ? `/${businessForm.slug}` : ''}
+          />
+          <p className="slug-help-text">
+            <FiInfo />
+            Generated automatically from your business name.
+          </p>
+        </div>
+
+        <div className="form-field">
+          <label htmlFor="business-description">Description</label>
+          <Textarea
+            id="business-description"
+            placeholder=""
+            value={businessForm.description}
+            onChange={(event) => updateField('description', event.target.value)}
+          />
+        </div>
+
+        <div className="form-field">
+          <label>Opening Days</label>
+          <div className="opening-days-grid">
+            {dayLabels.map((day) => (
+              <label key={day.label} className="opening-day-option">
+                <Checkbox
+                  checked={businessForm.schedule[day.index]?.enabled ?? false}
+                  onChange={() => toggleScheduleDay(day.index)}
+                />
+                <span>{day.label}</span>
+              </label>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="form-step-actions">
+        <Button variant="secondary" size="lg" onClick={() => navigate('/')}>
+          Back
+        </Button>
+        <Button size="lg">Next</Button>
+      </div>
+    </section>
+  )
+}
+
+export default Section1
