@@ -1,4 +1,4 @@
-import { FiInfo } from 'react-icons/fi'
+import { customAlphabet } from 'nanoid'
 import { useNavigate } from 'react-router-dom'
 
 import { useBusinessForm } from '../../context/BusinessFormContext'
@@ -18,6 +18,7 @@ const dayLabels = [
   { index: 5, label: 'Saturday' },
   { index: 6, label: 'Thursday' },
 ]
+const createSlugSuffix = customAlphabet('0123456789', 5)
 
 function slugify(value: string) {
   return value
@@ -25,6 +26,16 @@ function slugify(value: string) {
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
+}
+
+function buildSlug(value: string) {
+  const baseSlug = slugify(value)
+
+  if (!baseSlug) {
+    return ''
+  }
+
+  return `${baseSlug}-${createSlugSuffix()}`
 }
 
 function Section1() {
@@ -45,7 +56,7 @@ function Section1() {
     setBusinessForm((current) => ({
       ...current,
       name: value,
-      slug: slugify(value),
+      slug: buildSlug(value),
     }))
   }
 
@@ -85,13 +96,9 @@ function Section1() {
             id="business-slug"
             className="slug-display-input"
             placeholder="/techsmart-inc"
-            readOnly
+            disabled
             value={businessForm.slug ? `/${businessForm.slug}` : ''}
           />
-          <p className="slug-help-text">
-            <FiInfo />
-            Generated automatically from your business name.
-          </p>
         </div>
 
         <div className="form-field">
@@ -124,7 +131,9 @@ function Section1() {
         <Button variant="secondary" size="lg" onClick={() => navigate('/')}>
           Back
         </Button>
-        <Button size="lg">Next</Button>
+        <Button size="lg" onClick={() => navigate('/forms/branding')}>
+          Next
+        </Button>
       </div>
     </section>
   )

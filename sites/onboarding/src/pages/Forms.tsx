@@ -1,5 +1,6 @@
+import { Outlet } from 'react-router-dom'
 import backgroundImage from '../assets/background.png'
-import Section1 from '../components/Forms/Section1'
+import '../components/Forms/Form.css'
 import '../components/Forms/Section1.css'
 import '../components/LandingPage/LandingPage.css'
 
@@ -17,7 +18,7 @@ function Forms() {
 
       <main className="forms-shell">
         <div className="forms-panel">
-          <Section1 />
+          <Outlet />
         </div>
       </main>
     </div>

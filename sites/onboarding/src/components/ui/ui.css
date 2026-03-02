@@ -86,6 +86,15 @@
   border-color: #9ecfcd;
 }
 
+.ui-input:disabled,
+.ui-textarea:disabled {
+  background: #e8eaee;
+  border-color: #d7dbe3;
+  color: #98a1ad;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
 .ui-checkbox {
   width: 0.95rem;
   height: 0.95rem;

@@ -1,18 +1,3 @@
-.forms-shell {
-  position: relative;
-  z-index: 2;
-  min-height: 100vh;
-  padding: 4.75rem 1rem 3rem;
-}
-
-.forms-panel {
-  width: min(100%, 39.75rem);
-  margin: 0 auto;
-  padding: 2rem 1.75rem 1.25rem;
-  background: rgba(255, 255, 255, 0.96);
-  box-shadow: 0 26px 65px rgba(22, 27, 43, 0.16);
-}
-
 .form-step-card {
   display: flex;
   flex-direction: column;
@@ -56,7 +41,7 @@
 .form-step-body {
   display: grid;
   gap: 1.6rem;
-  width: min(100%, 18rem);
+  width: min(100%, 24rem);
   margin: 0 auto;
 }
 
@@ -82,15 +67,6 @@
   border-color: #d7dbe3;
 }
 
-.slug-help-text {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  margin: 0;
-  color: #97a0ad;
-  font-size: 0.78rem;
-}
-
 .opening-days-grid {
   display: flex;
   flex-wrap: wrap;
@@ -114,14 +90,6 @@
 }
 
 @media (max-width: 768px) {
-  .forms-shell {
-    padding-top: 4.25rem;
-  }
-
-  .forms-panel {
-    padding: 1.5rem 1.1rem 1.1rem;
-  }
-
   .form-step-tabs {
     gap: 0.75rem;
   }

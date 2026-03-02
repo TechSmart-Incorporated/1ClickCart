@@ -10,9 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "latest",
     "class-variance-authority": "latest",
     "clsx": "latest",
     "lucide-react": "latest",
+    "nanoid": "latest",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-icons": "^5.5.0",

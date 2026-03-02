@@ -165,7 +165,6 @@
   align-items: center;
   justify-content: center;
   min-height: 80vh;
-  padding: 7.5rem 0 2.5rem;
 }
 
 .hero-content {
@@ -272,7 +271,7 @@
 
   .hero-section {
     min-height: 80vh;
-    padding-top: 7rem;
+    padding-top: 5.1rem;
     padding-bottom: 2rem;
   }
 }
@@ -288,23 +287,28 @@
   }
 
   .landing-main {
-    width: min(100% - 1.25rem, 720px);
+    width: min(100% - 0.65rem, 720px);
     flex-basis: 80vh;
     min-height: 80vh;
   }
 
   .hero-section {
     min-height: 80vh;
-    padding: 6.5rem 0 1.5rem;
+    padding: 4.6rem 0 1.2rem;
   }
 
   .hero-content h1 {
-    font-size: clamp(2.35rem, 11vw, 3.7rem);
-    max-width: 12ch;
+    font-size: clamp(2.05rem, 9.6vw, 3.2rem);
+    max-width: none;
+  }
+
+  .hero-content {
+    width: min(100%, 24rem);
+    padding: 0 0.15rem;
   }
 
   .hero-cta {
-    min-width: min(14rem, 100%);
+    min-width: min(15.5rem, 100%);
   }
 
   .site-footer {

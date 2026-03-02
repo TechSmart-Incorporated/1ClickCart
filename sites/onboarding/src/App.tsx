@@ -1,13 +1,18 @@
 import './App.css'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import Forms from './pages/Forms'
+import Section1 from './components/Forms/Section1'
+import Section2 from './components/Forms/Section2'
 import Landing from './pages/Landing'
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Landing />} />
-      <Route path="/forms" element={<Forms />} />
+      <Route path="/forms" element={<Forms />}>
+        <Route index element={<Section1 />} />
+        <Route path="branding" element={<Section2 />} />
+      </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   )

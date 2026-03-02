@@ -1,0 +1,25 @@
+.forms-shell {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  padding: 4.75rem 1rem 3rem;
+}
+
+.forms-panel {
+  width: min(100%, 39.75rem);
+  margin: 0 auto;
+  padding: 2rem 1.75rem 1.25rem;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 26px 65px rgba(22, 27, 43, 0.16);
+  border-radius: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .forms-shell {
+    padding-top: 4.25rem;
+  }
+
+  .forms-panel {
+    padding: 1.5rem 1.1rem 1.1rem;
+  }
+}

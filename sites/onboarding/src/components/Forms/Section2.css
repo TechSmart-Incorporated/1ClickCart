@@ -1,0 +1,187 @@
+.branding-step-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.branding-step-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.branding-step-tab {
+  position: relative;
+  padding-bottom: 1rem;
+  color: #3f454f;
+  font-size: 0.98rem;
+  text-align: center;
+}
+
+.branding-step-tab::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0.28rem;
+  border-radius: 999px;
+  background: #d0d0d0;
+}
+
+.branding-step-tab.is-complete::after,
+.branding-step-tab.is-active::after {
+  background: #109b9b;
+}
+
+.branding-step-body {
+  display: grid;
+  gap: 1.8rem;
+  width: min(100%, 18rem);
+  margin: 0 auto;
+  margin-inline: auto;
+}
+
+.branding-upload-group {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.branding-upload-group label {
+  color: #6a7482;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.branding-upload-card {
+  position: relative;
+  min-height: 6.9rem;
+  max-width: 400px;
+  padding: 0.75rem;
+  border: 1px solid #d7dbe3;
+  border-radius: 1rem;
+  background: #fbfbfc;
+}
+
+.branding-upload-card.is-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.branding-upload-card.is-empty button {
+  padding: 0;
+}
+
+.branding-upload-placeholder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.4rem;
+  height: 3.4rem;
+  border: 0;
+  border-radius: 999px;
+  background: #31b56a;
+  color: #ffffff;
+  font-size: 1.55rem;
+  box-shadow: 0 14px 30px rgba(49, 181, 106, 0.24);
+  cursor: pointer;
+}
+
+.branding-upload-placeholder.is-loading {
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: #98a3b2;
+  font-size: 1rem;
+}
+
+.branding-upload-preview {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.branding-upload-preview-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 5rem;
+  max-width: 400px;
+  max-height: 400px;
+  overflow: hidden;
+  border-radius: 0.8rem;
+  background: #eef1f4;
+}
+
+.branding-upload-preview-frame img {
+  width: 100%;
+  height: 100%;
+  max-width: 400px;
+  max-height: 400px;
+  object-fit: contain;
+}
+
+.branding-upload-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.branding-upload-actions .ui-button {
+  min-width: 0;
+}
+
+.branding-delete-button.ui-button {
+  background: #d96666;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.branding-upload-status {
+  color: #7d8795;
+  font-size: 0.78rem;
+}
+
+.branding-upload-error {
+  color: #c54f4f;
+  font-size: 0.78rem;
+}
+
+.branding-upload-note {
+  margin: -0.85rem 0 0;
+  color: #97a0ad;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.branding-step-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.9rem;
+  padding-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .branding-step-body {
+    width: min(100%, 24rem);
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .branding-step-tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 1rem;
+  }
+
+  .branding-step-actions {
+    flex-direction: column-reverse;
+  }
+
+  .branding-upload-actions {
+    flex-direction: column;
+  }
+}
