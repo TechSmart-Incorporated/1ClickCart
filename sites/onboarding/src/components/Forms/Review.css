@@ -119,6 +119,26 @@
   padding-top: 0.5rem;
 }
 
+.review-submit-error {
+  margin: 0;
+  color: #c54f4f;
+  font-size: 0.82rem;
+  white-space: pre-wrap;
+}
+
+.review-submit-response {
+  margin: 0;
+  padding: 1rem;
+  overflow-x: auto;
+  border: 1px solid #d7dbe3;
+  border-radius: 1rem;
+  background: #fafafb;
+  color: #556375;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
 @media (max-width: 768px) {
   .review-title {
     font-size: 1.65rem;

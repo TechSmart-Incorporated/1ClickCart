@@ -1,7 +1,9 @@
+import axios from 'axios'
 import { GoogleMap, MarkerF, useJsApiLoader } from '@react-google-maps/api'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { useBusinessForm } from '../../context/BusinessFormContext'
+import { type BusinessFormData, useBusinessForm } from '../../context/BusinessFormContext'
 import { Button } from '../ui/button'
 import { Checkbox } from '../ui/checkbox'
 import { Input } from '../ui/input'
@@ -24,16 +26,78 @@ const dayLabels = [
   { index: 6, label: 'Thursday' },
 ]
 
+function createSubmissionPayload(businessForm: BusinessFormData) {
+  return {
+    name: businessForm.name,
+    email: businessForm.email,
+    slug: businessForm.slug,
+    minimum: businessForm.minimum,
+    tax_type: businessForm.tax_type,
+    tax: businessForm.tax,
+    delivery_price: businessForm.delivery_price,
+    service_fee: businessForm.service_fee,
+    schedule: JSON.stringify(businessForm.schedule),
+    enabled: Number(businessForm.enabled),
+    location: businessForm.location ? JSON.stringify(businessForm.location) : '',
+    timezone: businessForm.timezone,
+    address: businessForm.address,
+    phone: businessForm.phone,
+    header: businessForm.header,
+    logo: businessForm.logo,
+    description: businessForm.description,
+  }
+}
+
 function Review() {
   const navigate = useNavigate()
   const { businessForm } = useBusinessForm()
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submissionError, setSubmissionError] = useState('')
+  const [submissionResponse, setSubmissionResponse] = useState<string | null>(null)
   const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
+  const submissionEndpoint = import.meta.env.VITE_N8N_SUBMISSION_ENDPOINT
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: apiKey ?? '',
     libraries,
   })
 
   const mapCenter = businessForm.location ?? defaultCenter
+  const payload = createSubmissionPayload(businessForm)
+
+  const handleSubmit = async () => {
+    if (!submissionEndpoint) {
+      setSubmissionError('Missing VITE_N8N_SUBMISSION_ENDPOINT environment variable.')
+      return
+    }
+
+    setIsSubmitting(true)
+    setSubmissionError('')
+    setSubmissionResponse(null)
+
+    try {
+      const response = await axios.post(submissionEndpoint, payload, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+
+      setSubmissionResponse(JSON.stringify(response.data, null, 2))
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        setSubmissionError(
+          typeof error.response?.data === 'string'
+            ? error.response.data
+            : JSON.stringify(error.response?.data ?? error.message, null, 2),
+        )
+      } else {
+        setSubmissionError(
+          error instanceof Error ? error.message : 'Submission failed.',
+        )
+      }
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
 
   return (
     <section className="review-card" aria-label="Submission Review">
@@ -152,6 +216,13 @@ function Review() {
         </div>
       </div>
 
+      {submissionError ? (
+        <p className="review-submit-error">{submissionError}</p>
+      ) : null}
+      {submissionResponse ? (
+        <pre className="review-submit-response">{submissionResponse}</pre>
+      ) : null}
+
       <div className="review-actions">
         <Button
           variant="secondary"
@@ -160,7 +231,9 @@ function Review() {
         >
           Back
         </Button>
-        <Button size="lg">Submit</Button>
+        <Button size="lg" disabled={isSubmitting} onClick={handleSubmit}>
+          {isSubmitting ? 'Submitting...' : 'Submit'}
+        </Button>
       </div>
     </section>
   )
