@@ -2,6 +2,7 @@ import {
   createContext,
   type Dispatch,
   type ReactNode,
+  useRef,
   type SetStateAction,
   useContext,
   useEffect,
@@ -129,8 +130,15 @@ export function BusinessFormProvider({
   const [businessForm, setBusinessForm] = useState<BusinessFormData>(
     getInitialBusinessForm,
   )
+  const skipNextPersistenceRef = useRef(false)
 
   useEffect(() => {
+    if (skipNextPersistenceRef.current) {
+      window.localStorage.removeItem(BUSINESS_FORM_STORAGE_KEY)
+      skipNextPersistenceRef.current = false
+      return
+    }
+
     window.localStorage.setItem(
       BUSINESS_FORM_STORAGE_KEY,
       JSON.stringify(businessForm),
@@ -138,6 +146,7 @@ export function BusinessFormProvider({
   }, [businessForm])
 
   const resetBusinessForm = () => {
+    skipNextPersistenceRef.current = true
     setBusinessForm(createDefaultBusinessForm())
   }
 

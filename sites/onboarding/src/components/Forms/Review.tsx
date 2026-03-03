@@ -50,7 +50,7 @@ function createSubmissionPayload(businessForm: BusinessFormData) {
 
 function Review() {
   const navigate = useNavigate()
-  const { businessForm } = useBusinessForm()
+  const { businessForm, resetBusinessForm } = useBusinessForm()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submissionError, setSubmissionError] = useState('')
   const [submissionResponse, setSubmissionResponse] = useState<string | null>(null)
@@ -82,6 +82,8 @@ function Review() {
       })
 
       setSubmissionResponse(JSON.stringify(response.data, null, 2))
+      resetBusinessForm()
+      navigate('/')
     } catch (error) {
       if (axios.isAxiosError(error)) {
         setSubmissionError(
