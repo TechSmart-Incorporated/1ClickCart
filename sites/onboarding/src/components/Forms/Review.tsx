@@ -21,9 +21,9 @@ const dayLabels = [
   { index: 1, label: 'Monday' },
   { index: 2, label: 'Tuesday' },
   { index: 3, label: 'Wednesday' },
-  { index: 4, label: 'Friday' },
-  { index: 5, label: 'Saturday' },
-  { index: 6, label: 'Thursday' },
+  { index: 4, label: 'Thursday' },
+  { index: 5, label: 'Friday' },
+  { index: 6, label: 'Saturday' },
 ]
 
 function createSubmissionPayload(businessForm: BusinessFormData) {

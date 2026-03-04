@@ -158,7 +158,7 @@ function LocationPicker() {
           <Input
             id="business-location-search"
             className="location-address-input"
-            placeholder="Search address or place"
+            placeholder="Enter business address"
             value={searchValue}
             onChange={(event) => {
               // Keep the autocomplete text box as its own input state.

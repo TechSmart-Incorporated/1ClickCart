@@ -73,7 +73,7 @@ function Section4() {
             className="contact-input"
             type="email"
             required
-            placeholder="softwareengineer@techsmartgy.com"
+            placeholder="Enter business email"
             value={businessForm.email}
             onChange={(event) => updateField('email', event.target.value)}
           />
@@ -94,7 +94,7 @@ function Section4() {
             className="contact-input"
             type="tel"
             required
-            placeholder="592 718 2733"
+            placeholder="Enter business number"
             value={businessForm.phone}
             onChange={(event) => handlePhoneChange(event.target.value)}
           />

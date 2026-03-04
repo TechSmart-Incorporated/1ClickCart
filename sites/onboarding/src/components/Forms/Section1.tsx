@@ -15,9 +15,9 @@ const dayLabels = [
   { index: 1, label: 'Monday' },
   { index: 2, label: 'Tuesday' },
   { index: 3, label: 'Wednesday' },
-  { index: 4, label: 'Friday' },
-  { index: 5, label: 'Saturday' },
-  { index: 6, label: 'Thursday' },
+  { index: 4, label: 'Thursday' },
+  { index: 5, label: 'Friday' },
+  { index: 6, label: 'Saturday' },
 ]
 const createSlugSuffix = customAlphabet('0123456789', 5)
 
@@ -36,7 +36,7 @@ function buildSlug(value: string) {
     return ''
   }
 
-  return `${baseSlug}-${createSlugSuffix()}`
+  return `${baseSlug}_${createSlugSuffix()}`
 }
 
 function Section1() {
@@ -103,7 +103,7 @@ function Section1() {
           <Input
             id="business-name"
             required
-            placeholder="TechSmart Inc"
+            placeholder="Enter business name"
             value={businessForm.name}
             onChange={(event) => handleNameChange(event.target.value)}
           />
@@ -117,7 +117,7 @@ function Section1() {
           <Input
             id="business-slug"
             className="slug-display-input"
-            placeholder="/techsmart-inc"
+            placeholder="/business_name_12345"
             disabled
             value={businessForm.slug ? `/${businessForm.slug}` : ''}
           />
@@ -128,7 +128,7 @@ function Section1() {
           <Textarea
             id="business-description"
             required
-            placeholder=""
+            placeholder="Enter a short business description"
             value={businessForm.description}
             onChange={(event) => updateField('description', event.target.value)}
           />
