@@ -35,6 +35,10 @@
   z-index: 10;
 }
 
+.site-header--landing {
+  padding: 1.25rem 1.5rem 0;
+}
+
 .site-header__inner {
   display: flex;
   align-items: center;

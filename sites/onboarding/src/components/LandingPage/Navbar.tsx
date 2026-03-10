@@ -39,7 +39,7 @@ function Navbar({ menuOpen, onToggleMenu, onNavigate, variant = 'landing' }: Nav
   }
 
   return (
-    <header className={`site-header ${variant === 'page' ? 'site-header--page' : ''}`}>
+    <header className={`site-header ${variant === 'page' ? 'site-header--page' : 'site-header--landing'}`}>
       <div className="site-header__inner">
         <a className="brand" href="https://1clickcart.com" onClick={handleNavigate}>
           1 Click Cart
