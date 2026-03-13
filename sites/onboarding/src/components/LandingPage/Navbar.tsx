@@ -50,7 +50,7 @@ function Navbar() {
       >
         {/* Logo */}
         <a
-          href="https://1clickcart.com"
+          href="https://business.1clickcart.com"
           className="inline-flex items-center gap-2 no-underline whitespace-nowrap shrink-0"
         >
           <span className="inline-flex items-center justify-center w-8 h-8 rounded-[8px] bg-[#14b899] text-white text-[0.7rem] font-extrabold tracking-wider shrink-0">

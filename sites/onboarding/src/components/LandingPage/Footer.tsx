@@ -3,7 +3,7 @@ import { Mail, Phone } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const platformLinks = [
-  { label: 'Home', to: '/' },
+  { label: '1ClickCart.com', to: 'https://1clickcart.com' },
   { label: 'About', to: '/about' },
   { label: 'Get Started', to: '/started' },
   { label: 'Terms of Service', to: '/terms' },
