@@ -7,10 +7,10 @@
 The platform provides merchants with the tools required to:
 
 - Sell products online
-- Manage orders
+- Manage orders and customer checkout
 - Process payments
-- Interact with customers
-- Manage store operations
+- Support delivery and pickup operations
+- Handle core store operations in one place
 
 The long-term goal of 1ClickCart is to provide a platform similar to **Shopify**, but designed specifically for the Guyanese market where many small and medium-sized businesses lack accessible e-commerce infrastructure.
 
@@ -35,7 +35,7 @@ Ordering provides the foundational commerce engine responsible for the following
 
 Using Ordering allows the platform to support real-world commerce operations without building all e-commerce infrastructure from scratch.
 
-Reference  
+Reference
 https://www.ordering.co/
 
 ---
@@ -59,6 +59,37 @@ These components transform the base Ordering infrastructure into a **localized c
 
 ---
 
+# Platform Features
+
+The following features are surfaced to merchants through the platform:
+
+| Feature | Description |
+|---|---|
+| Online Storefront | Launch a fully branded store in minutes. Showcase products with beautiful layouts. |
+| Order Management | Track, manage, and fulfill orders from a single dashboard. |
+| Payment Processing | Accept local and international payments securely with built-in checkout. |
+| Delivery & Pickup | Offer flexible fulfillment — delivery, curbside pickup, or in-store collection. |
+| Store Operations | Set hours, manage inventory, configure pricing — all from one control center. |
+| Reach All of Guyana | Connect with customers nationwide. Store is open 24/7, anywhere. |
+
+### Platform Stats (as shown on landing page)
+
+- **100+** Merchants Ready
+- **24/7** Platform Uptime
+- **0%** Setup Fees
+
+---
+
+# Platform Values
+
+| Value | Description |
+|---|---|
+| Speed | Get your store up and running fast. Streamlined onboarding takes minutes, not weeks. |
+| Trust | Built on Ordering.co's proven commerce engine with enterprise-grade security and reliability. |
+| Local Focus | Purpose-built for Guyana's market with localized payment, delivery, and support services. |
+
+---
+
 # Business Onboarding System
 
 ## Purpose
@@ -68,6 +99,8 @@ The **Business Onboarding System** is responsible for registering and preparing 
 Instead of administrators manually configuring merchant accounts, businesses submit their information through a structured digital onboarding process.
 
 The onboarding system then prepares and provisions the merchant account.
+
+The onboarding wizard is accessible at `/forms` (also reachable from the "Start Selling" CTA on the landing page).
 
 ---
 
@@ -182,6 +215,31 @@ The business can then begin accepting customer orders through the 1ClickCart pla
 
 ---
 
+# How It Works (Landing Page Summary)
+
+A simplified 4-step summary is shown on the landing page to communicate the process to prospective merchants:
+
+1. **Submit Your Info** — Fill out the onboarding form with business details — name, location, hours, and branding.
+2. **We Review & Approve** — The team validates the application and provisions the merchant account on the platform.
+3. **Configure Your Store** — Set up products, pricing, fulfillment options, and customize storefront branding.
+4. **Start Selling** — Store goes live. Accept orders, process payments, and grow the customer base.
+
+---
+
+# Site Structure
+
+The onboarding site is a React SPA hosted at `https://business.1clickcart.com`.
+
+| Route | Page | Purpose |
+|---|---|---|
+| `/` | Landing | Hero, features, stats, How It Works, CTA |
+| `/about` | About | Platform description, values, vision |
+| `/started` | Get Started | Detailed onboarding process and preparation checklist |
+| `/terms` | Terms of Service | Usage rules, review policy, merchant responsibilities |
+| `/forms` or `/onboard` | Onboarding Form | Multi-step merchant registration wizard |
+
+---
+
 # Operational Benefits
 
 The onboarding system provides several key operational benefits.
@@ -192,6 +250,14 @@ The onboarding system provides several key operational benefits.
 - Reduced manual administrative work
 - Standardized merchant data
 - Improved platform scalability
+
+---
+
+# Contact & Support
+
+- **Support email:** support@1clickcart.com
+- **Platform URL:** https://1clickcart.com
+- **Business portal:** https://business.1clickcart.com
 
 ---
 
