@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { FiMenu, FiX } from 'react-icons/fi'
 import { Link, useLocation } from 'react-router-dom'
+import logoMain from '../../assets/logo-main.svg'
 
 const navigation = [
   { label: 'Home', to: '/' },
@@ -51,15 +52,9 @@ function Navbar() {
         {/* Logo */}
         <a
           href="https://business.1clickcart.com"
-          className="inline-flex items-center gap-2 no-underline whitespace-nowrap shrink-0"
+          className="inline-flex items-center no-underline whitespace-nowrap shrink-0"
         >
-          <span className="inline-flex items-center justify-center w-8 h-8 rounded-[8px] bg-[#14b899] text-white text-[0.7rem] font-extrabold tracking-wider shrink-0">
-            1C
-          </span>
-          <span className="flex flex-col leading-none">
-            <span className="text-white font-semibold text-base tracking-wide">1ClickCart</span>
-            <span className="text-[#14b899] text-[0.65rem] font-semibold tracking-widest uppercase mt-[2px]">Business</span>
-          </span>
+          <img src={logoMain} alt="1ClickCart" className="h-9 w-auto" />
         </a>
 
         {/* Desktop nav */}

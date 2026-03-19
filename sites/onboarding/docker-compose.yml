@@ -1,0 +1,14 @@
+services:
+  onboarding:
+    build:
+      context: ../..        # /home/nick — gives Docker access to both sites/ and docker/
+      dockerfile: sites/onboarding/Dockerfile
+      target: runner
+    image: onboarding:latest
+    container_name: onboarding
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    # Uncomment if your app reads runtime env vars via window.__ENV__ or similar
+    # environment:
+    #   - VITE_API_URL=https://api.example.com

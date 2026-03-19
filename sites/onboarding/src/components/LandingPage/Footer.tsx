@@ -1,12 +1,14 @@
 import { useEffect, useRef } from 'react'
 import { Mail, Phone } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import logoMain from '../../assets/logo-main.svg'
 
 const platformLinks = [
-  { label: '1ClickCart.com', to: 'https://1clickcart.com' },
-  { label: 'About', to: '/about' },
-  { label: 'Get Started', to: '/started' },
-  { label: 'Terms of Service', to: '/terms' },
+  { label: '1ClickCart.com', to: 'https://1clickcart.com', external: true },
+  { label: 'Store', to: 'https://store.1clickcart.com', external: true },
+  { label: 'About', to: '/about', external: false },
+  { label: 'Get Started', to: '/started', external: false },
+  { label: 'Terms of Service', to: '/terms', external: false },
 ]
 
 function Footer() {
@@ -42,11 +44,8 @@ function Footer() {
         <div className="flex flex-wrap gap-10 justify-between">
           {/* Brand */}
           <div className="max-w-[260px]">
-            <div className="flex items-center gap-2 mb-3">
-              <div className="w-9 h-9 rounded-[0.45rem] bg-[#14b899] flex items-center justify-center font-bold text-[#0a1a1a] text-sm select-none">
-                1C
-              </div>
-              <span className="text-white font-bold text-lg">1ClickCart</span>
+            <div className="mb-3">
+              <img src={logoMain} alt="1ClickCart" className="h-9 w-auto" />
             </div>
             <p className="m-0 text-white/50 text-sm leading-relaxed">
               Powering digital commerce for businesses across Guyana.
@@ -61,14 +60,25 @@ function Footer() {
                 Platform
               </p>
               <ul className="list-none m-0 p-0 space-y-3">
-                {platformLinks.map(({ label, to }) => (
+                {platformLinks.map(({ label, to, external }) => (
                   <li key={label}>
-                    <Link
-                      to={to}
-                      className="text-white/60 text-sm no-underline hover:text-white transition-colors duration-150"
-                    >
-                      {label}
-                    </Link>
+                    {external ? (
+                      <a
+                        href={to}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white/60 text-sm no-underline hover:text-white transition-colors duration-150"
+                      >
+                        {label}
+                      </a>
+                    ) : (
+                      <Link
+                        to={to}
+                        className="text-white/60 text-sm no-underline hover:text-white transition-colors duration-150"
+                      >
+                        {label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
