@@ -55,6 +55,10 @@ function Navbar() {
           className="inline-flex items-center no-underline whitespace-nowrap shrink-0"
         >
           <img src={logoMain} alt="1ClickCart" className="h-9 w-auto" />
+          <div className="hidden sm:flex flex-col leading-tight ml-3">
+            <span className="text-white text-sm font-semibold tracking-wide">1ClickCart</span>
+            <span className="text-[#14b899] text-xs font-medium tracking-widest uppercase">Business</span>
+          </div>
         </a>
 
         {/* Desktop nav */}

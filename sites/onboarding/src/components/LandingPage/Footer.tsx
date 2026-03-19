@@ -44,8 +44,12 @@ function Footer() {
         <div className="flex flex-wrap gap-10 justify-between">
           {/* Brand */}
           <div className="max-w-[260px]">
-            <div className="mb-3">
+            <div className="mb-3 flex items-center gap-3">
               <img src={logoMain} alt="1ClickCart" className="h-9 w-auto" />
+              <div className="hidden sm:flex flex-col leading-tight">
+                <span className="text-white text-sm font-semibold tracking-wide">1ClickCart</span>
+                <span className="text-[#14b899] text-xs font-medium tracking-widest uppercase">Business</span>
+              </div>
             </div>
             <p className="m-0 text-white/50 text-sm leading-relaxed">
               Powering digital commerce for businesses across Guyana.
