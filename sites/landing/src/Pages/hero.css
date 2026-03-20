@@ -1,0 +1,266 @@
+.hero-section {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  margin-bottom: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1126px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  padding-top: 64px; /* offset for sticky navbar */
+  box-sizing: border-box;
+  gap: 2rem;
+}
+
+/* Left */
+.hero-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  text-align: left;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(20, 184, 153, 0.4);
+  background: rgba(20, 184, 153, 0.08);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.85rem;
+}
+
+.hero-badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #14b899;
+  box-shadow: 0 0 6px #14b899;
+}
+
+.hero-heading {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  color: #ffffff;
+  margin: 0;
+}
+
+.hero-accent {
+  color: #14b899;
+}
+
+.hero-subtext {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.65);
+  max-width: 420px;
+  margin: 0;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.6rem;
+  border-radius: 999px;
+  background: #14b899;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.15s;
+}
+
+.hero-btn-primary:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+.hero-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.6rem;
+  border-radius: 999px;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.hero-btn-outline:hover {
+  border-color: #14b899;
+  background: rgba(20, 184, 153, 0.08);
+}
+
+.hero-stats {
+  display: flex;
+  gap: 2.5rem;
+  padding-top: 0.5rem;
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.hero-stat-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #14b899;
+  line-height: 1;
+}
+
+.hero-stat-label {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Right */
+.hero-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-phone-wrapper {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Notifications */
+.hero-notif {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.65rem 1rem;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  white-space: nowrap;
+  animation: notif-float 4s ease-in-out infinite;
+  transition: opacity 0.4s ease;
+}
+
+.hero-phone-float:hover ~ .hero-notif {
+  opacity: 0.15;
+}
+
+.hero-notif--top {
+  top: 18%;
+  right: -10%;
+  animation-delay: 0.5s;
+}
+
+.hero-notif--bottom {
+  bottom: 22%;
+  left: -10%;
+  animation-delay: 1.5s;
+}
+
+.hero-notif-icon {
+  font-size: 1.4rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0fdf8;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+
+.hero-notif-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.hero-notif-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0a1a2a;
+}
+
+.hero-notif-sub {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+@keyframes notif-float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-4px); }
+  100% { transform: translateY(0); }
+}
+
+.hero-phone-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.hero-phone {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.hero-phone:hover {
+  transform: scale(1.05);
+}
+
+@keyframes float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 80px;
+  }
+
+  .hero-right {
+    display: none;
+  }
+
+  .hero-stats {
+    gap: 1.5rem;
+  }
+}
